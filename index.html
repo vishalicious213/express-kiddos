@@ -11,6 +11,18 @@
             <img id="kidpic" src="" alt="">
         </div>
 
-        <script src="main.js"></script>
+        <script>
+            const button = document.querySelector('button')
+            const img = document.querySelector('#kidpic')
+
+            button.addEventListener('click', () => {
+                fetch('/img')
+                    .then(response => response.json())
+                    .then(data => {
+                        img.src = data.imgUrl
+                        img.alt = data.imgUrl
+                    })
+            })
+        </script>
     </body>
 </html>
