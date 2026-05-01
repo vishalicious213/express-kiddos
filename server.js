@@ -21,6 +21,11 @@ app.get('/img', (request, response) => {
             response.status(500).send('Error reading image directory')
             return
         }
+
+        if (files.length === 0) {
+            response.status(404).send('No images found')
+            return
+        }
 }
 
 app.listen(process.env.PORT || PORT, () => {
