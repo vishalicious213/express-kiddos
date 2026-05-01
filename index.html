@@ -23,6 +23,17 @@
                         img.alt = data.imgUrl
                     })
             })
+
+            img.addEventListener("load", () => {
+                const isWide = img.naturalWidth > img.naturalHeight
+                if (isWide) {
+                    img.style.width = "90%"
+                    img.style.height = "auto"
+                } else {
+                    img.style.width = "auto"
+                    img.style.height = "70vh"
+                }
+            })
         </script>
     </body>
 </html>
