@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path')
+const fs = require('fs')
 const cors = require('cors')
 
 const app = express()
@@ -11,6 +12,16 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.get('/', (request, response) => {
     response.sendFile(__dirname + '/index.html')
 })
+
+app.get('/img', (request, response) => {
+    const imgPath = path.join(__dirname, 'public')
+    fs.readdir(imgPath, (err, files) => {
+        if (err) {
+            console.error(err)
+            response.status(500).send('Error reading image directory')
+            return
+        }
+}
 
 app.listen(process.env.PORT || PORT, () => {
     console.log(`Server running on port ${PORT}`)
