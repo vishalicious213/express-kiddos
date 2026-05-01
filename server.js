@@ -26,7 +26,11 @@ app.get('/img', (request, response) => {
             response.status(404).send('No images found')
             return
         }
-}
+
+        const count = files.length
+        console.log(count)
+    })
+})
 
 app.listen(process.env.PORT || PORT, () => {
     console.log(`Server running on port ${PORT}`)
