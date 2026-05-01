@@ -19,7 +19,7 @@
             const img = document.querySelector('#kidpic')
 
             button.addEventListener('click', () => {
-                fetch('/img')
+                fetch('https://express-kiddos.onrender.com/img')
                     .then(response => response.json())
                     .then(data => {
                         img.src = data.imgUrl
