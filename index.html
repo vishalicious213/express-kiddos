@@ -17,12 +17,12 @@
         <script>
             const button = document.querySelector('button')
             const img = document.querySelector('#kidpic')
-
+// https://express-kiddos-1.onrender.com/public/2026-04-26-05.jpg
             button.addEventListener('click', () => {
                 fetch('https://express-kiddos.onrender.com/img')
                     .then(response => response.json())
                     .then(data => {
-                        img.src = data.imgUrl
+                        img.src = `https://express-kiddos-1.onrender.com/public/${data.imgUrl}`
                         img.alt = data.imgUrl
                     })
             })
