@@ -29,6 +29,9 @@ app.get('/img', (request, response) => {
 
         const count = files.length
         console.log(count)
+        const randomImg = Math.floor(Math.random() * count)
+
+        response.json({ imgUrl: `/public/${randomImg}` })
     })
 })
 
